@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     public abstract class ViewModelBase : ExtendedBindableObject
     {

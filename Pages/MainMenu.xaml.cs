@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Tag.Core.Pages
+namespace neo.pcl.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Skip)]
     public partial class MainMenu : ContentPage

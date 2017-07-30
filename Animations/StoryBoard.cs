@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Tag.Core.Animations
+namespace neo.pcl.Animations
 {
     [ContentProperty("Animations")]
     public class StoryBoard : AnimationBase

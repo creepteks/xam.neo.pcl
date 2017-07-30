@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tag.Core.Pages;
+using neo.pcl.Pages;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     class MainPageVM: ViewModelBase
     {

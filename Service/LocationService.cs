@@ -5,7 +5,7 @@ using Plugin.Geolocator.Abstractions;
 using System.Diagnostics;
 using Acr.UserDialogs;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     class LocationService : ILocationService
     {

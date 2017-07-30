@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     class SignUp_preApp: Application
     {

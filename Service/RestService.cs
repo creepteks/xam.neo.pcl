@@ -9,7 +9,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using System.Diagnostics;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     public class RestService: IRestService
     {

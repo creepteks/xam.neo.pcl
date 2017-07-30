@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     class DialogService : IDialogService
     {

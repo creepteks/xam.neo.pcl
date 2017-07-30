@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     // inherits from IBaseAction: the type of action with a content passed to the store and, then, reducer
     interface IFatAction<T,K>: IBaseAction

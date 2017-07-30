@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Tag.Core.Pages;
+using neo.pcl.Pages;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     public class NavigationService : INavigationService
     {

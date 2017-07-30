@@ -10,7 +10,7 @@ using Acr.UserDialogs;
 using Plugin.Media;
 using Newtonsoft.Json;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     class SignUpPageVM: ViewModelBase
     {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using WebSocketSharp;
 using Acr.UserDialogs;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     public class TagClient: IWebsocktClient
     {

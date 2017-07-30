@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tag.Core.Models
+namespace neo.pcl.Models
 {
     class BaseModel
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     public class ThirdPartyAuthModel
     {

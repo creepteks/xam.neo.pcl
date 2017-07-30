@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     public class DependencyInjector
     {

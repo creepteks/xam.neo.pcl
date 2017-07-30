@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tag.Core.Helpers
+namespace neo.pcl.Helpers
 {
     public static class MapHelper
     {

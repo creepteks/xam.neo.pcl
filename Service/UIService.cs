@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     public static class UIService
     {

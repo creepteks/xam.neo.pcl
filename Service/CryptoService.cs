@@ -1,6 +1,6 @@
 ﻿using Liphsoft.Crypto.Argon2;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     public class CryptoService: ICryptoService
     {

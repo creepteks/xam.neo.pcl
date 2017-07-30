@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using Xamarin.Auth;
 using System.Threading.Tasks;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     internal class TagAuthenticator
     {

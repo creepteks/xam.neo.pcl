@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     public interface INavigationService
     {

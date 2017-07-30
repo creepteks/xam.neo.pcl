@@ -1,4 +1,4 @@
-﻿namespace Tag.Core.Utils
+﻿namespace neo.pcl.Utils
 {
     public static class MathHelper
     {

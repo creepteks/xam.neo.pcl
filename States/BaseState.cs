@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tag.Core.Actions;
+using neo.pcl.Actions;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     class BaseState : IObservable<IBaseAction>
     {

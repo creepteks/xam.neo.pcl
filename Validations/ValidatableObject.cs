@@ -1,9 +1,9 @@
-﻿using Tag.Core;
+﻿using neo.pcl;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Tag.Core.Validations
+namespace neo.pcl.Validations
 {
     public class ValidatableObject<T> : ExtendedBindableObject, IValidity
     {

@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using Xamarin.Forms;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     public abstract class ExtendedBindableObject : BindableObject
     {

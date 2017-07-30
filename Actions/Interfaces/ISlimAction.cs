@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tag.Core.Actions
+namespace neo.pcl.Actions
 {
     public enum SlimActionTypes
     {

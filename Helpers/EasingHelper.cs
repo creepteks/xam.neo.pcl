@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
-using Tag.Core.Animations;
+using neo.pcl.Animations;
 
-namespace Tag.Core.Helpers
+namespace neo.pcl.Helpers
 {
     public static class EasingHelper
     {

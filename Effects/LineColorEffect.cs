@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Xamarin.Forms;
 
-namespace Tag.Core.Effects
+namespace neo.pcl.Effects
 {
     public static class LineColorEffect
     {

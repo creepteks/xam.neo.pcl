@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 //using System.Security.Cryptography.X509Certificates;
 
-//namespace Tag.Core
+//namespace neo.pcl
 //{
 //    public class WebSocketService
 //    {

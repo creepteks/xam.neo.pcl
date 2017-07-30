@@ -1,8 +1,8 @@
 ﻿<MasterDetailPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:pages="clr-namespace:Tag.Core.Pages;assembly=Tag.Core"
-    x:Class="Tag.Core.Pages.MainPage">
+    xmlns:pages="clr-namespace:neo.pcl.Pages;assembly=neo.pcl"
+    x:Class="neo.pcl.Pages.MainPage">
     <MasterDetailPage.MasterBehavior>
         <OnPlatform
             x:TypeArguments="MasterBehavior"             

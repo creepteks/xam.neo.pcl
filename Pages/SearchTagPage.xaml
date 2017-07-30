@@ -3,8 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-    xmlns:controls="clr-namespace:Tag.Core.Controls;assembly=Tag.Core"
-    x:Class="Tag.Core.Pages.SearchTagPage"
+    xmlns:controls="clr-namespace:neo.pcl.Controls;assembly=neo.pcl"
+    x:Class="neo.pcl.Pages.SearchTagPage"
     BackgroundColor="Transparent">
     <controls:CustomScrollView
         Scrolled="ScrollView_Scrolled"

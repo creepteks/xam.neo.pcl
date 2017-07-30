@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Tag.Core.Animations
+namespace neo.pcl.Animations
 {
     public abstract class AnimationBase : BindableObject
     {

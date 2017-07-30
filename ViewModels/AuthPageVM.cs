@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Tag.Core.Validations;
+using neo.pcl.Validations;
 using Xamarin.Forms;
 
 
-namespace Tag.Core
+namespace neo.pcl
 {
     class AuthPageVM : ViewModelBase
     {

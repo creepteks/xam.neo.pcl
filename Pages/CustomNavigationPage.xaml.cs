@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace Tag.Core.Pages
+namespace neo.pcl.Pages
 {
     public partial class CustomNavigationPage : NavigationPage
     {

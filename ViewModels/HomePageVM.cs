@@ -11,7 +11,7 @@ using Plugin.Geolocator;
 using System.IO;
 using Acr.UserDialogs;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     class HomePageVM : ViewModelBase, IObserver<IBaseAction>
     {

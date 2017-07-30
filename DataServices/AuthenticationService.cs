@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Tag.Core.Pages;
+using neo.pcl.Pages;
 using Xamarin.Auth;
 using Xamarin.Forms;
-namespace Tag.Core
+namespace neo.pcl
 {
     public class AuthenticationService : IAuthenticationService
     {

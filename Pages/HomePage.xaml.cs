@@ -3,10 +3,10 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tag.Core.Utils;
+using neo.pcl.Utils;
 using Xamarin.Forms;
 
-namespace Tag.Core.Pages
+namespace neo.pcl.Pages
 {
     public partial class HomePage : ContentPage
     {

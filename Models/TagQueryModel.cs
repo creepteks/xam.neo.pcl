@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     [System.Obsolete("an extra abstracion which comes to no good")]
     public class TagQueryModel

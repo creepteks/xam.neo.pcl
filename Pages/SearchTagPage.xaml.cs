@@ -4,12 +4,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Tag.Core.Utils;
+using neo.pcl.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 using Xamarin.Forms.Xaml;
 
-namespace Tag.Core.Pages
+namespace neo.pcl.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SearchTagPage : ContentPage
@@ -148,7 +148,7 @@ namespace Tag.Core.Pages
                 // #refactor
                 string icon = "userpin.png";
                 var assembly = typeof(SearchTagPage).GetTypeInfo().Assembly;
-                var stream = assembly.GetManifestResourceStream($"Tag.Core.{icon}");
+                var stream = assembly.GetManifestResourceStream($"neo.pcl.{icon}");
                 return BitmapDescriptorFactory.FromStream(stream);
             }).Invoke();
             userPin.Position = new Position(pos.Latitude, pos.Longitude);

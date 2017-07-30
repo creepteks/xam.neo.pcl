@@ -1,7 +1,7 @@
-﻿using Tag.Core.Animations;
+﻿using neo.pcl.Animations;
 using Xamarin.Forms;
 
-namespace Tag.Core.Triggers
+namespace neo.pcl.Triggers
 {
     public class BeginAnimation : TriggerAction<VisualElement>
     {

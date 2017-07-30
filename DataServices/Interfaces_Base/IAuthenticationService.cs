@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Xamarin.Auth;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     public interface IAuthenticationService
     {

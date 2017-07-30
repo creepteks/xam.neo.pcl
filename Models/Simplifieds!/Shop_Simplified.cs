@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Tag.Core
+namespace neo.pcl
 {
     class Shop_Simplified
     {

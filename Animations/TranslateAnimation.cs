@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Tag.Core.Helpers;
+using neo.pcl.Helpers;
 
-namespace Tag.Core.Animations
+namespace neo.pcl.Animations
 {
     public class TranslateToAnimation : AnimationBase
     {

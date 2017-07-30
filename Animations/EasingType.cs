@@ -1,4 +1,4 @@
-﻿namespace Tag.Core.Animations
+﻿namespace neo.pcl.Animations
 {
     public enum EasingType
     {

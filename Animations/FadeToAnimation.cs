@@ -1,10 +1,10 @@
-﻿using Tag.Core;
+﻿using neo.pcl;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-using Tag.Core.Helpers;
-namespace Tag.Core.Animations
+using neo.pcl.Helpers;
+namespace neo.pcl.Animations
 {
     public class FadeToAnimation : AnimationBase
     {

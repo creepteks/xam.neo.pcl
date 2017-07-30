@@ -1,6 +1,6 @@
 {
 	"knownAssemblies":[
-    { "name": "Tag.Core.Controls.StackedList" },
+    { "name": "neo.pcl.Controls.StackedList" },
      {"name" :  "FFImageLoading.Forms.Droid"}
 	]
 }

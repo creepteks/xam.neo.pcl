@@ -4,7 +4,7 @@
              Title=" "
              x:Name="Menu"
              BackgroundColor="Transparent"
-             x:Class="Tag.Core.Pages.MainMenu">
+             x:Class="neo.pcl.Pages.MainMenu">
     <Grid
         Padding="0, 50, 0, 0">
         <BoxView

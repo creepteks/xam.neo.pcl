@@ -1,4 +1,4 @@
-﻿namespace Tag.Core.Helpers
+﻿namespace neo.pcl.Helpers
 {
     public sealed class OnCustomPlatform<T>
     {

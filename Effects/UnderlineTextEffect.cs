@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Tag.Core.Effects
+namespace neo.pcl.Effects
 {
     public class UnderlineTextEffect : RoutingEffect
     {

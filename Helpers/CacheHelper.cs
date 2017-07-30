@@ -2,7 +2,7 @@
 using FFImageLoading.Forms;
 using System.Threading.Tasks;
 
-namespace Tag.Core.Helpers
+namespace neo.pcl.Helpers
 {
     public class CacheHelper
     {
