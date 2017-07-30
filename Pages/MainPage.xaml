@@ -1,0 +1,19 @@
+﻿<MasterDetailPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Tag.Core.Pages;assembly=Tag.Core"
+    x:Class="Tag.Core.Pages.MainPage">
+    <MasterDetailPage.MasterBehavior>
+        <OnPlatform
+            x:TypeArguments="MasterBehavior"             
+            WinPhone="Popover"/>
+    </MasterDetailPage.MasterBehavior>
+    <MasterDetailPage.Master>
+        <pages:MainMenu
+            BindingContext="{Binding MenuViewModel}"/>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage 
+            BackgroundColor="Transparent"/>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

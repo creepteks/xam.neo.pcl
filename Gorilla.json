@@ -1,0 +1,6 @@
+{
+	"knownAssemblies":[
+    { "name": "Tag.Core.Controls.StackedList" },
+     {"name" :  "FFImageLoading.Forms.Droid"}
+	]
+}

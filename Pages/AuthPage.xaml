@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimageTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="Tag.Core.Pages.AuthPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <!--login page background-->
+            <ffimageloading:CachedImage
+                AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                Aspect="AspectFill">
+                <ffimageloading:CachedImage.Source>
+                    <OnPlatform
+                        x:TypeArguments="ImageSource"
+                        Android="splash"/>
+                </ffimageloading:CachedImage.Source>
+                <ffimageloading:CachedImage.Transformations>
+                    <ffimageTransformation:BlurredTransformation/>
+                </ffimageloading:CachedImage.Transformations>
+            </ffimageloading:CachedImage>
+            <!-- #foundations: Main grid holding the main frame-->
+            <Grid
+                Padding="0, 10"
+                AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                AbsoluteLayout.LayoutFlags="All">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!--logo-->
+                <ffimageloading:CachedImage
+                    Grid.Row="0"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <ffimageloading:CachedImage.Source>
+                        <OnPlatform
+                            x:TypeArguments="ImageSource"
+                            Android="icon"/>
+                    </ffimageloading:CachedImage.Source>
+                </ffimageloading:CachedImage>
+
+                <!--SignUp via Tag || SignUp via gOAuth-->
+                <Grid
+                    Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="1.5*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="1.5*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <!--SignIn text: ورود با-->
+                    <Grid
+                        Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--seperator-->
+                        <ffimageloading:CachedImage
+                            Grid.Column="0"
+                            Aspect="AspectFill">
+                            <ffimageloading:CachedImage.Source>
+                                <OnPlatform
+                                    x:TypeArguments="ImageSource"
+                                    Android="seperatorLine"/>
+                            </ffimageloading:CachedImage.Source>
+                        </ffimageloading:CachedImage>
+                        <Label
+                            Grid.Column="1"
+                            Text="ورود با"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+                        </Label>
+                        <ffimageloading:CachedImage
+                            Grid.Column="2"
+                            Aspect="AspectFill">
+                            <ffimageloading:CachedImage.Source>
+                                <OnPlatform
+                                    x:TypeArguments="ImageSource"
+                                    Android="seperatorLine"/>
+                            </ffimageloading:CachedImage.Source>
+                        </ffimageloading:CachedImage>
+                    </Grid>
+                    <!--Tag auth button-->
+                    <AbsoluteLayout
+                        Grid.Row="1">
+                        <Button
+                            Image="icon"
+                            Command="{Binding AuthenticateViaTagCommand}"
+                            AbsoluteLayout.LayoutBounds=".5, .5, 1, 1"
+                            AbsoluteLayout.LayoutFlags="All">
+                        </Button>
+                    </AbsoluteLayout>
+                    <!--SignIn text: یا با استفاده از-->
+                    <Grid
+                        Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--seperator-->
+                        <ffimageloading:CachedImage
+                            Grid.Column="0"
+                            Aspect="AspectFill">
+                            <ffimageloading:CachedImage.Source>
+                                <OnPlatform
+                                    x:TypeArguments="ImageSource"
+                                    Android="seperatorLine"/>
+                            </ffimageloading:CachedImage.Source>
+                        </ffimageloading:CachedImage>
+                        <Label
+                            Grid.Column="1"
+                            Text="یا با استفاده از"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+                        </Label>
+                        <ffimageloading:CachedImage
+                            Grid.Column="2"
+                            Aspect="AspectFill">
+                            <ffimageloading:CachedImage.Source>
+                                <OnPlatform
+                                    x:TypeArguments="ImageSource"
+                                    Android="seperatorLine"/>
+                            </ffimageloading:CachedImage.Source>
+                        </ffimageloading:CachedImage>
+                    </Grid>
+                    <!--SignInVia Google, Facebook, Twitter-->
+                    <Grid
+                        Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--Twitter-->
+                        <AbsoluteLayout
+                            Grid.Column="0">
+                            <Button
+                                Command="{Binding AuthenticateViaTwitter}"
+                                AbsoluteLayout.LayoutBounds=".5, .5, 1, 1"
+                                AbsoluteLayout.LayoutFlags="All">
+                            </Button>
+                        </AbsoluteLayout>
+                        <!--Facebook-->
+                        <AbsoluteLayout
+                            Grid.Column="1">
+                            <Button
+                                Command="{Binding AuthenticateViaFBCommand}"
+                                AbsoluteLayout.LayoutBounds=".5, .5, 1, 1"
+                                AbsoluteLayout.LayoutFlags="All">
+                            </Button>
+                        </AbsoluteLayout>
+                        <!--Google-->
+                        <AbsoluteLayout
+                            Grid.Column="2">
+                            <Button
+                                Command="{Binding AuthenticateViaGoogleCommand}"
+                                AbsoluteLayout.LayoutBounds=".5, .5, 1, 1"
+                                AbsoluteLayout.LayoutFlags="All">
+                            </Button>
+                        </AbsoluteLayout>
+                    </Grid>
+                </Grid>
+                <AbsoluteLayout
+                    Grid.Row="2">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        Color="Black">
+                    </BoxView>
+                </AbsoluteLayout>
+
+                <!--<Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        Sign Up Now using Tag or google
+                        <Grid 
+                            x:Name="SignUp"
+                            Padding="5,5,5,5"
+                            Grid.Column="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Column="1"
+                                    Grid.RowSpan="2"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Text="ثبت نام با">
+                                </Label>
+                                <Grid
+                                    Padding="1, 1, 1, 1"
+                                    Grid.Column="0"
+                                    Grid.RowSpan="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Button 
+                                        x:Name="AuthenticateViaTagBtn"
+                                        Clicked="{Binding OnAuthenticateViaTag}"
+                                        Image="tagAuthImg">
+                                    </Button>
+                                    <Button
+                                        x:Name="AuthenticateViaGoogleBtn"
+                                        Clicked="{Binding OnAuthenticateViaGoogle}"
+                                        Image="googleAuthImg">
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        
+                        or
+                        <Label 
+                            Grid.Column="1"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Text="یا">
+                        </Label>
+                        
+                        Not-now sign Up => Login as guest
+                        <Grid 
+                            x:Name="LoginAsGuest"
+                            Padding="5,5,5,5"
+                            Grid.Column="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label
+                                    Grid.Row="0"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Text="فعلا نه!">
+                                </Label>
+                                <Button 
+                                    Grid.Row="1"
+                                    x:Name="LoginAsGuestBtn"
+                                    Clicked="{Binding OnLoginAsGuest}"
+                                    Image="loginAsGuestImg">
+                                </Button>
+                            </Grid>
+                        </Grid>                        
+                    </Grid>-->
+            </Grid>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

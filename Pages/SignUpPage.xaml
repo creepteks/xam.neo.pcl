@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimageTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="Tag.Core.Pages.SignUpPage">
+    <!--<BoxView Color="Black"></BoxView>-->
+    <Grid
+        Padding="0, 10, 0, 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label 
+            Text="{Binding ConnectionRes}"/>
+        <!--<ffimage:CachedImage
+            x:Name="UserPic"
+            Grid.Row="0"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Source="{Binding UserImagePath}"
+            Aspect="AspectFit"
+            CacheType="Disk"    
+            CacheDuration="30"
+            DownsampleToViewSize="True">
+            <ffimage:CachedImage.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding AddUserPicCommand}">
+                </TapGestureRecognizer>
+            </ffimage:CachedImage.GestureRecognizers>
+            <ffimage:CachedImage.LoadingPlaceholder>
+                <OnPlatform
+                    x:TypeArguments="ImageSource"
+                    Android="icon"/>
+            </ffimage:CachedImage.LoadingPlaceholder>
+            <ffimage:CachedImage.ErrorPlaceholder>
+                <OnPlatform
+                    x:TypeArguments="ImageSource"
+                    Android="icon"/>
+            </ffimage:CachedImage.ErrorPlaceholder>
+            <ffimage:CachedImage.Transformations>
+                <ffimageTransformation:CircleTransformation/>
+            </ffimage:CachedImage.Transformations>
+        </ffimage:CachedImage>-->
+        <Grid
+            Grid.Row="1"
+            Padding="10, 10, 10, 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <!--Name entry fields-->
+            <StackLayout
+                Grid.Row="0"
+                Orientation="Vertical">
+                <Label
+                    Text="نام و نام خانوادگی"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center">
+                </Label>
+                <Entry
+                    HorizontalTextAlignment="End"
+                    Keyboard="Text"
+                    Text="{Binding UserName}">
+                </Entry>
+            </StackLayout>
+
+            <!--phone number entry fields-->
+            <StackLayout
+                Grid.Row="1"
+                Orientation="Vertical">
+                <Label
+                    Text="شماره تلفن"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center">
+                </Label>
+                <Entry
+                    Keyboard="Telephone"
+                    Text="{Binding UserCellNumber}">
+                </Entry>
+            </StackLayout>
+
+            <!--email entry-->
+            <StackLayout
+                Grid.Row="2"
+                Orientation="Vertical">
+                <Label
+                    Text="نام کاربری (یا رایانامه)"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center">
+                </Label>
+                <Entry
+                    Keyboard="Email"
+                    Text="{Binding UserEmail}">
+                </Entry>
+            </StackLayout>
+
+            <!--password entry-->
+            <StackLayout
+                Grid.Row="3"
+                Orientation="Vertical">
+                <Label
+                    Text="رمز عبور"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center">
+                </Label>
+                <Entry
+                    IsPassword="True"
+                    Text="{Binding UserPassword}">
+                </Entry>
+                <!--<Entry x:Name="entPassword"
+                   Grid.Row="2" 
+                   Grid.Column="2"
+                   Keyboard="Text"
+                   Completed="EntPassword_OnCompleted"
+                   IsPassword="True"
+                   Placeholder="Driver Code"
+                   PlaceholderColor="Gray"
+                   Style="{StaticResource EntryStyleLrg}"
+                   Text="{Binding EnteredLogInPassword}"
+                   VerticalOptions="Start" />-->
+            </StackLayout>
+            <Button
+                Grid.Row="4"
+                Text="ثبت نام"
+                Image="icon"
+                Command="{Binding SignUpCommand}">
+            </Button>
+        </Grid>
+    </Grid>
+</ContentPage>

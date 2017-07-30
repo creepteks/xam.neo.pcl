@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tag.Core.Pages.OtherShopPage"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:controls="clr-namespace:Tag.Core.Controls">
+    <ScrollView
+        x:Name="mainScrollView">
+        <RelativeLayout>
+            <StackLayout
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}">
+                <ffimage:CachedImage
+                    Source="{Binding ImageAddress}"
+                    Aspect="AspectFit">
+                </ffimage:CachedImage>
+                <controls:StackedList
+                    x:Name="OffSalseStackedList">
+                </controls:StackedList>
+                <controls:StackedList
+                    x:Name="CurrentItemsStackedList">
+                </controls:StackedList>
+                <controls:StackedList
+                    x:Name="RecentCustomersStackedList">
+                </controls:StackedList>
+            </StackLayout>
+            <controls:FloatingActionButtonView
+                ImageName="icon">
+
+            </controls:FloatingActionButtonView>
+        </RelativeLayout>
+    </ScrollView>
+</ContentPage>

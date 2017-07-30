@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:controls="clr-namespace:Tag.Core.Controls;assembly=Tag.Core"
+    x:Class="Tag.Core.Pages.SearchTagPage"
+    BackgroundColor="Transparent">
+    <controls:CustomScrollView
+        Scrolled="ScrollView_Scrolled"
+        Padding="5, 0, 5, 0">
+        <RelativeLayout
+            x:Name="relativeLayout">
+            <StackLayout
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
+                x:Name="mainStack">
+                <Label
+                    x:Name="questionLabel"
+                    Text="دنبال چی می‌گردی؟"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                </Label>
+                <SearchBar
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    x:Name="TagSearchBar"
+                    TextChanged="TagSearchBar_UpdateSuggestions"
+                    SearchButtonPressed="TagSearchBar_AddTag"
+                    Placeholder="اسم کالا، برند، رنگ، سایز , ..."
+                    HorizontalTextAlignment="Center">
+                </SearchBar>
+
+                <!--StackLayout holding the user tag inquiries-->
+                <StackLayout
+                    HeightRequest="100"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="FillAndExpand"
+                    x:Name="SearchTagsHolder_SL"
+                    Orientation="Horizontal">
+                </StackLayout>
+                <!--Map-->
+                <!-- #revision : change stacklayout to, probably, a map control-->
+                <controls:CustomMapView
+                    x:Name="map"
+                    HeightRequest="300"/>
+            </StackLayout>
+            <StackLayout
+                x:Name="autoCmpltion"
+                BackgroundColor="Transparent">
+                <controls:CustomListView
+                    x:Name="AutoCmpltion_LstVw"
+                    ItemTapped="AutoCmpltion_LstVw_ItemTapped"
+                    IsPullToRefreshEnabled="True"
+                    HeightRequest="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                        <!--later on # revise # idea : probably use details for each autocompletion
+                                                Detail="{Binding AutoCompSuggestion.Detail}">-->
+                            <TextCell
+                                Text="{Binding}">
+                            </TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </controls:CustomListView>
+            </StackLayout>
+        </RelativeLayout>
+    </controls:CustomScrollView>
+</ContentPage>

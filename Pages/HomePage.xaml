@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:eff="clr-namespace:Tag.Core.Effects;assembly=Tag.Core"
+    xmlns:controls="clr-namespace:Tag.Core.Controls;assembly=Tag.Core"
+    xmlns:animations="clr-namespace:Tag.Core.Animations;assembly=Tag.Core"
+    xmlns:helpers="clr-namespace:Tag.Core.Helpers;assembly=Tag.Core"
+    x:Class="Tag.Core.Pages.HomePage"
+    xmlns:triggers="clr-namespace:Tag.Core.Triggers;assembly=Tag.Core">
+
+    <ContentPage.Title>
+        <OnPlatform 
+            x:TypeArguments="x:String"
+            iOS="خونه"
+            WinPhone="خونه"/>
+    </ContentPage.Title>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <animations:StoryBoard 
+                x:Key="FloatingActionButtonInitialAnimation"
+                Target="{x:Reference FloatingActionButton}">
+                <animations:TranslateToAnimation 
+                    TranslateY="0"
+                    Delay="1000"
+                    Easing="SpringOut"
+                    Duration="1200" />
+            </animations:StoryBoard>
+            <animations:StoryBoard 
+                x:Key="ContentPanelInitialAnimation"
+                Target="{x:Reference ContentPanel}">
+                <animations:TranslateToAnimation 
+                    TranslateY="0"
+                    Delay="2000"
+                    Easing="SpringOut"
+                    Duration="1200" />
+            </animations:StoryBoard>
+            <!--<animations:StoryBoard 
+                    x:Key="WeatherPanelInitialAnimation"
+                    Target="{x:Reference infoPanel}">
+                <animations:FadeToAnimation 
+                        Opacity="0"
+                        Delay="2000"
+                        Duration="5000" />
+            </animations:StoryBoard>-->
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Triggers>
+        <EventTrigger 
+            Event="Appearing">
+            <triggers:BeginAnimation
+                Animation="{StaticResource FloatingActionButtonInitialAnimation}" />
+            <triggers:BeginAnimation
+                Animation="{StaticResource ContentPanelInitialAnimation}" />
+        </EventTrigger>
+    </ContentPage.Triggers>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+                x:Name="SearchForTagsToolbarItem"
+                Command="{Binding SearchForTags}"
+                Text="New Ride">
+            <ToolbarItem.Icon>
+                <OnPlatform 
+                        x:TypeArguments="FileImageSource"
+                        WinPhone="Assets/searchForTags.png"
+                        iOS="searchForTags"/>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Effects>
+        <eff:ContentPageTitleFontEffect />
+    </ContentPage.Effects>
+    
+    <!--the whole page starts here!-->
+    <Grid>
+        <Grid.Padding>
+            <OnPlatform
+                x:TypeArguments="Thickness"
+                Android="10, 0, 10, 0"
+                iOS="10, 20, 10, 0"/>
+        </Grid.Padding>
+        <Grid.BackgroundColor>
+            <OnPlatform
+                    x:TypeArguments="Color"
+                    WinPhone="{StaticResource BackgroundGrayColor}"/>
+        </Grid.BackgroundColor>
+        <ScrollView
+                x:Name="mainScrollView">
+            <StackLayout
+                    Orientation="Vertical">
+                <!-- The Grid hosting InfoPanel-->
+                <Grid>
+                    <ffimageloading:CachedImage 
+                            Aspect="AspectFill">
+                        <ffimageloading:CachedImage.Source>
+                            <OnPlatform
+                                x:TypeArguments="ImageSource"
+                                WinPhone="bg_header_mdpi.png"/>
+                        </ffimageloading:CachedImage.Source>
+                        <!--not showing this badboy on android and ios, cause we donot need it-->
+                        <ffimageloading:CachedImage.HeightRequest>
+                            <OnPlatform
+                                x:TypeArguments="x:Double"
+                                Android="0"
+                                iOS="0"/>
+                        </ffimageloading:CachedImage.HeightRequest>
+                    </ffimageloading:CachedImage>
+                        
+                    <!--InfoPanel-->
+                    <StackLayout
+                            x:Name="infoPanel"
+                            AnchorX="0"
+                            AnchorY="1"
+                            VerticalOptions="End">
+                        <StackLayout.Margin>
+                            <OnPlatform
+                                    x:TypeArguments="Thickness"
+                                    Android="16, 5, 0, 0"
+                                    iOS="16, 53, 0, 0"
+                                    WinPhone="16, 73, 0, 0"/>
+                        </StackLayout.Margin>
+                        <StackLayout.HeightRequest>
+                            <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="105"
+                                    iOS="85"
+                                    WinPhone="105"/>
+                        </StackLayout.HeightRequest>
+                        <!--<Label Text="{Binding CurrentDate, Converter={StaticResource DateTimeConverter}}"
+                                       Style="{StaticResource HeaderLabelStyle}" />
+                                <Label Text="{Binding Location}"
+                                       Style="{StaticResource HeaderLabelStyle}" />
+                                <Label Text="{Binding Temp, StringFormat='{0}°F'}"
+                                       Style="{StaticResource TempLabelStyle}" />-->
+                        <Label Text="Date" FontSize="Large"/>
+                        <Label Text="Location" FontSize="Large"/>
+                        <Label Text="Temprature" FontSize="Large"/>
+                    </StackLayout>
+                </Grid>
+                <!--Content panel-->
+                <Grid 
+                    x:Name="ContentPanel"
+                    TranslationY="1000"
+                    BackgroundColor="{StaticResource BackgroundGrayColor}">
+                    <Grid.RowDefinitions>
+                        <!--first row: text label-->
+                        <RowDefinition Height="50" />
+                        <!--second row: stackedList-->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <helpers:OnCustomPlatform
+                                        x:TypeArguments="GridLength"
+                                        iOS="150"
+                                        Android="180"
+                                        WinPhone="150"
+                                        Windows="220"/>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        <!--third row: seperator-->
+                        <RowDefinition Height="30"></RowDefinition>
+                        <!--forth row: text  label-->
+                        <RowDefinition Height="50" />
+                        <!--fifth row: stackedlist-->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <helpers:OnCustomPlatform
+                                        x:TypeArguments="GridLength"
+                                        iOS="150"
+                                        Android="180"
+                                        WinPhone="150"
+                                        Windows="220"/>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                    <!--Today's Recommended-->
+                    <Label
+                        Grid.Row="0"
+                        Text="پیشنهاد امروز!!"
+                        HorizontalTextAlignment="End"
+                        VerticalOptions="Center"/>
+                    <!--Style="{StaticResource SectionLabelStyle}"-->
+                    
+                    <controls:StackedList
+                            x:Name="RecForYouList"
+                            Grid.Row="1"
+                            Margin="5, 0"
+                            Spacing="5"
+                            ListOrientation="Horizontal"
+                            ItemsSource="{Binding RecommendedForYou}"
+                            SelectedCommand="{Binding SelectRecommendedCommand}">
+                        <controls:StackedList.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.Margin>
+                                        <OnPlatform
+                                            x:TypeArguments="Thickness"
+                                            WinPhone="10,0,0,0"/>
+                                    </Grid.Margin>
+                                    <Grid.WidthRequest>
+                                        <helpers:OnCustomPlatform
+                                            x:TypeArguments="x:Double"
+                                            iOS="210"
+                                            Android="240"
+                                            WinPhone="220"
+                                            Windows="300"/>
+                                    </Grid.WidthRequest>
+                                    <AbsoluteLayout>
+                                            <!--CacheType="Disk"-->
+                                        <ffimageloading:CachedImage
+                                            Source="{Binding suggestionImagePath}"
+                                            CacheDuration="30"
+                                            DownsampleToViewSize="True"
+                                            Aspect="AspectFill"
+                                            AbsoluteLayout.LayoutFlags="All"
+                                            AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+                                            <ffimageloading:CachedImage.LoadingPlaceholder>
+                                                <helpers:OnCustomPlatform
+                                                    x:TypeArguments="ImageSource"
+                                                    Android="placeholder_240x170"
+                                                    iOS="placeholder_240x170"
+                                                    WinPhone="Assets/placeholder_240x170.png"
+                                                    Windows="Assets/placeholder_240x170.png"/>
+                                            </ffimageloading:CachedImage.LoadingPlaceholder>
+                                        </ffimageloading:CachedImage>
+                                        <Label 
+                                            Text="{Binding suggestionName}"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            FontSize="Large"
+                                            LineBreakMode="WordWrap"
+                                            AbsoluteLayout.LayoutFlags ="All" 
+                                            AbsoluteLayout.LayoutBounds ="0.5, 0.5, 1, 1"/>
+                                        <!--Style="{StaticResource OverlayStyle}"-->
+                                        <!--<ffimageloading:CachedImage
+                                                 AbsoluteLayout.LayoutFlags="All"
+                                                 AbsoluteLayout.LayoutBounds="0, 0, 1.0, 1.0" />-->
+
+                                        <!--add some styles-->
+                                    </AbsoluteLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="3*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Image="icon.png"
+                                            Command="{Binding OnSuggestionGeoLocationSelected}"/>
+                                        <Button
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Image="icon.png"
+                                            Command="{Binding OnSuggestionTelegeramSelected}"/>
+                                        <Button
+                                            Grid.Row="1"
+                                            Grid.Column="2"
+                                            Image="icon.png"
+                                            Command="{Binding OnSuggestionCallShopSelected}"/>
+                                        <Button
+                                            Grid.Row="1"
+                                            Grid.Column="3"
+                                            Image="icon.png"
+                                            Command="{Binding OnSuggestionInstagramSelected}"/>
+
+                                        <!--Style="{StaticResource EventTitleLabelStyle}" />-->
+                                        <!--<Label Text="{Binding suggestionName}"/>-->
+                                        <!--Style="{StaticResource EventSubtitleLabelStyle}" />-->
+                                        <!--<Label Text="{Binding Venue.Name}"/>-->
+                                        <!--Style="{StaticResource EventLabelStyle}" />-->
+                                        <!--<Label Text="{Binding StartTime, Converter={StaticResource DateTimeConverter}}"/>-->
+                                        <!--Style="{StaticResource EventLabelStyle}" />-->
+                                        <!--<Label Text="{x:Static core:GlobalSettings.City}"/>-->
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </controls:StackedList.ItemTemplate>
+                    </controls:StackedList>
+                    
+                    <!--seperator-->
+                    <BoxView
+                        Grid.Row="2"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        Color="{StaticResource GrayColor}"
+                        Opacity="0.22"
+                        HeightRequest="1" />
+                    
+                    <!--favorite shops-->
+                    <Label
+                        Grid.Row="3"
+                        Text="فروشگاه‌های مورد علاقه"
+                        HorizontalTextAlignment="End"
+                        VerticalOptions="Center" />
+                    <controls:StackedList
+                        Grid.Row="4"
+                        x:Name="FavoriteShopsList"
+                        Margin="5, 0"
+                        Spacing="5"
+                        ListOrientation="Horizontal"
+                        ItemsSource="{Binding FavoriteShops}"
+                        SelectedCommand="{Binding SelectFavShopCommand}">
+                        <controls:StackedList.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.WidthRequest>
+                                        <OnPlatform
+                                            x:TypeArguments="x:Double"
+                                            Android="240"/>
+                                    </Grid.WidthRequest>
+                                    <AbsoluteLayout>
+                                            <!--CacheType="Disk"-->
+                                        <ffimageloading:CachedImage
+                                            Source="{Binding ImagePath}"
+                                            CacheDuration="30"
+                                            DownsampleToViewSize="True"
+                                            Aspect="AspectFill"
+                                            AbsoluteLayout.LayoutFlags="All"
+                                            AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+                                        </ffimageloading:CachedImage>
+                                        <Label
+                                            Text="{Binding Name}"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            FontSize="Large"
+                                            LineBreakMode="WordWrap"
+                                            AbsoluteLayout.LayoutFlags ="All" 
+                                            AbsoluteLayout.LayoutBounds ="0.5, 0.5, 1, 1">
+                                        </Label>
+                                    </AbsoluteLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </controls:StackedList.ItemTemplate>
+                    </controls:StackedList>
+                    <!--New About You-->
+                    <!--<controls:StackedList
+                            x:Name="News"
+                            Grid.Row="1"
+                            Margin="5, 0"
+                            Spacing="5"
+                            ListOrientation="Horizontal"
+                            ItemsSource="{Binding NewsAboutYou}"
+                            SelectedCommand="{Binding OnNewsSelected}">
+                            <controls:StackedList.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.Margin>
+                                            <OnPlatform
+                                                x:TypeArguments="Thickness"
+                                                WinPhone="10,0,0,0"/>
+                                        </Grid.Margin>
+                                        <Grid.WidthRequest>
+                                            <helpers:OnCustomPlatform
+                                                x:TypeArguments="x:Double"
+                                                iOS="210"
+                                                Android="240"
+                                                WinPhone="220"
+                                                Windows="300"/>
+                                        </Grid.WidthRequest>
+                                        <AbsoluteLayout>
+                                             <ffimageloading:CachedImage
+                                                Source="{Binding newsImage}"
+                                                CacheType="Disk"
+                                                CacheDuration="30"
+                                                DownsampleToViewSize="True"
+                                                Aspect="AspectFill"
+                                                AbsoluteLayout.LayoutFlags="All"
+                                                AbsoluteLayout.LayoutBounds="0, 0, 1.0, 1.0">
+                                                <ffimageloading:CachedImage.LoadingPlaceholder>
+                                                   <helpers:OnCustomPlatform
+                                                        x:TypeArguments="ImageSource"
+                                                        Android="placeholder_240x170"
+                                                        iOS="placeholder_240x170"
+                                                        WinPhone="Assets/placeholder_240x170.png"
+                                                        Windows="Assets/placeholder_240x170.png"/>
+                                                </ffimageloading:CachedImage.LoadingPlaceholder>
+                                            </ffimageloading:CachedImage>
+                                            Style="{StaticResource OverlayStyle}"
+                                            AbsoluteLayout.LayoutFlags="All"
+                                            AbsoluteLayout.LayoutBounds="0, 0, 1.0, 1.0" />
+                                        </AbsoluteLayout>
+                                        <StackLayout
+                                            Padding="15, 15, 40, 15">
+                                            -->
+                    <!--Style="{StaticResource EventTitleLabelStyle}" />-->
+                    <!--
+                                            <Label Text="{Binding suggestionName}"/>
+                                            -->
+                    <!--Style="{StaticResource EventSubtitleLabelStyle}" />-->
+                    <!--<Label Text="{Binding Venue.Name}"/>-->
+                    <!--Style="{StaticResource EventLabelStyle}" />-->
+                    <!--<Label Text="{Binding StartTime, Converter={StaticResource DateTimeConverter}}"/>-->
+                    <!--Style="{StaticResource EventLabelStyle}" />-->
+                    <!--<Label Text="{x:Static core:GlobalSettings.City}"/>-->
+                    <!--
+                                        </StackLayout>
+                                    </Grid>
+                                </DataTemplate>
+                            </controls:StackedList.ItemTemplate>
+                        </controls:StackedList>-->
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+        <ActivityIndicator
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+            <ActivityIndicator.Color>
+                <OnPlatform
+                        x:TypeArguments="Color"
+                        iOS="{StaticResource BrightYellowColor}"
+                        Android="{StaticResource BrightYellowColor}"
+                        WinPhone="{StaticResource BlueColor}" />
+            </ActivityIndicator.Color>
+            <ActivityIndicator.WidthRequest>
+                <OnPlatform
+                    x:TypeArguments="x:Double"
+                    iOS="100"
+                    Android="100"
+                    WinPhone="400" />
+            </ActivityIndicator.WidthRequest>
+        </ActivityIndicator>
+        <controls:FloatingActionButtonView
+            x:Name="FloatingActionButton"
+            ImageName="icon.png"
+            Command="{Binding SearchForTagCommand}"
+            ColorNormal="#3164F6"
+            ColorPressed="Black"
+            ColorRipple="#3498DB"
+            TranslationY="1000"
+            HorizontalOptions="StartAndExpand"
+            VerticalOptions="EndAndExpand"/>
+    </Grid>
+</ContentPage>
